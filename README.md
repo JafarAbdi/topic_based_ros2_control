@@ -1,4 +1,4 @@
-# TopicBased Ros2 Control
+# Topic Based Ros2 Control
 
 Description: This is a ROS 2 package for integrating the ros2_control with any system that uses topics to command the robot and publish its state.
 
