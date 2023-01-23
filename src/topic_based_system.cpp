@@ -184,8 +184,14 @@ hardware_interface::return_type TopicBasedSystem::read(const rclcpp::Time& /*tim
     {
       auto j = static_cast<std::size_t>(std::distance(joints.begin(), it));
       joint_states_[0][j] = latest_joint_state_.position[i];
-      joint_states_[1][j] = latest_joint_state_.velocity[i];
-      joint_states_[3][j] = latest_joint_state_.effort[i];
+      if (!latest_joint_state_.velocity.empty())
+      {
+        joint_states_[1][j] = latest_joint_state_.velocity[i];
+      }
+      if (!latest_joint_state_.effort.empty())
+      {
+        joint_states_[3][j] = latest_joint_state_.effort[i];
+      }
     }
   }
 
